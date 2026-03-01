@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import Login from "./components/Login";
 import Timeline from "./components/Timeline";
 import PostForm from "./components/PostForm";
+import { signInWithPopup, signOut } from "firebase/auth";
+import { auth, provider } from "./firebase/config";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -24,19 +26,21 @@ function App() {
 
   /**
    * ログインした時に実行される関数
-   * @param {*} username
+   *
    */
-  const handleLogin = (username) => {
-    setCurrentUser(username);
-    setIsLoggedIn(true);
+  const handleLogin = () => {
+    signInWithPopup(auth, provider).then((result) => {
+      setCurrentUser(result.user);
+    });
   };
 
   /**
    * ログアウトした時に実行される関数
    */
   const handleLogout = () => {
-    setCurrentUser(null);
-    setIsLoggedIn(false);
+    signOut(auth).then(() => {
+      setCurrentUser(null);
+    });
   };
 
   /**
@@ -46,7 +50,7 @@ function App() {
   const handlePost = (content) => {
     const newPost = {
       id: posts.length + 1,
-      author: currentUser,
+      author: currentUser.displayName,
       content: content,
       timestamp: new Date().toISOString(),
       likes: 0,
@@ -79,7 +83,7 @@ function App() {
     );
   };
 
-  if (!isLoggedIn) {
+  if (!currentUser) {
     return <Login onLogin={handleLogin} />;
   }
 
@@ -88,7 +92,8 @@ function App() {
       <header className="header">
         <h1>シンプルSNS</h1>
         <div className="user-info">
-          <span>ようこそ、{currentUser}さん</span>
+          <span>ようこそ、{currentUser.displayName}さん</span>
+          <img src={currentUser.photoURL} className="avatar" />
           <button onClick={handleLogout} className="logout-btn">
             ログアウト
           </button>

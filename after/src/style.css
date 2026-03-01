@@ -288,6 +288,12 @@ body {
   background: #ffd4d4;
 }
 
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
 /* レスポンシブ */
 @media (max-width: 768px) {
   .header {
