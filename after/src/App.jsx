@@ -6,7 +6,6 @@ import { signInWithPopup, signOut } from "firebase/auth";
 import { auth, provider } from "./firebase/config";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
   const [posts, setPosts] = useState([
     {
@@ -15,7 +14,7 @@ function App() {
       content: "これはサンプル投稿です！",
       timestamp: new Date().toISOString(),
       likes: 5,
-      likedBy: ["ユーザー1", "ユーザー2"], // いいねしたユーザーのリスト
+      likedBy: ["ユーザー1", "ユーザー2"]
     },
   ]);
 
