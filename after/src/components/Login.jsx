@@ -7,11 +7,8 @@ function Login({ onLogin }) {
    * ログインボタンを押した時に呼ばれる関数
    * @param {*} e
    */
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (username.trim()) {
-      onLogin(username);
-    }
+  const handleLogin = () => {
+    onLogin(username);
   };
 
   return (
@@ -19,23 +16,9 @@ function Login({ onLogin }) {
       <div className="login-box">
         <h1>シンプルSNS</h1>
         <p className="login-subtitle">ようこそ！ログインしてください</p>
-        <form onSubmit={handleSubmit} className="login-form">
-          <div className="form-group">
-            <label htmlFor="username">ユーザー名</label>
-            <input
-              id="username"
-              type="text"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              placeholder="ユーザー名を入力"
-              className="input"
-              autoFocus
-            />
-          </div>
-          <button type="submit" className="btn-primary">
-            ログイン
-          </button>
-        </form>
+        <button className="btn-primary" onClick={handleLogin}>
+          ログイン
+        </button>
       </div>
     </div>
   );
