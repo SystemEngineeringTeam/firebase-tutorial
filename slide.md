@@ -23,7 +23,7 @@ paginate: true
 - **所属**: コンピュータシステム専攻 2 年生
 - **技術領域**: TypeScript, Kotlin, Go, AWS
 - **趣味**: 絶叫系, ゲーム, 食べること
-  ![bg right:40%](./yabe.jpg)
+  ![bg right:40%](./image/yabe.jpg)
 
 ---
 
@@ -89,9 +89,10 @@ Googleが提供する
 **「アプリ開発に必要なもの全部入り」サービス**
 
 特徴：
+
 - バックエンド開発のめんどくさいところは全部Googleが用意してくれてる
-	- サーバー管理不要
-	- フロントエンド中心で開発できる
+  - サーバー管理不要
+  - フロントエンド中心で開発できる
 
 ---
 
@@ -116,3 +117,101 @@ Googleが提供する
 ---
 
 ## アプリ完成イメージ
+
+---
+
+## プロジェクトの作成
+
+- firebase のURL
+  https://firebase.google.com/?hl=ja
+- ログインした後コンソールへ移動
+  ![width:1000px](./image/2.png)
+
+---
+
+- firebaseプロジェクトを設定して開始をクリック
+
+![width:850px](./image/3.png)
+
+---
+
+- プロジェクト名を入力して続行
+
+![width:850px](./image/4.png)
+
+---
+
+- AIアシスタントは今回使わないのでどちらでも
+
+![width:850px](./image/5.png)
+
+---
+
+- アナリティクスはオフでプロジェクトを作成
+
+![width:700px](./image/6.png)
+
+---
+
+- アプリを追加 → ウェブを選択
+
+![width:700px](./image/7.png)
+![width:700px](./image/8.png)
+
+---
+
+- アプリのニックネームを入力してアプリを登録
+
+![width:700px](./image/9.png)
+
+---
+
+- `npm install firebase`をコピー
+
+![width:700px](./image/10.png)
+
+- vscodeに移動して
+- `cd before` でbeforeディレクトリに移動
+- コピーしたコマンドを貼り付けて実行
+
+![width:700px](./image/11.png)
+
+---
+
+- このコードをコピー
+
+![width:400px](./image/12.png)
+
+- firebase.jsという新しいファイルを作り、その中に貼り付け
+
+![width:300px](./image/13.png)
+
+- 貼り付け終わったらコンソールに進む
+
+---
+
+### ログイン機能のための設定
+- 左側にある「構築」の中の「Authentication」をクリック
+
+![width:700px](./image/14.png)
+
+---
+
+- 始めるをクリック
+
+![width:700px](./image/15.png)
+
+---
+
+- Googleを選択
+
+![width:700px](./image/16.png)
+
+---
+
+- 有効にするスイッチをオンにする
+- サポートメールを追加して保存をクリック
+
+![width:700px](./image/17.png)
+
+---
