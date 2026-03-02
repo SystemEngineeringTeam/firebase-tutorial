@@ -16,7 +16,11 @@ function Post({ post, onLike, currentUser }) {
   return (
     <div className="post">
       <div className="post-header">
-        <div className="post-author-avatar">{post.author.charAt(0)}</div>
+        {post.photoURL ? (
+          <img src={post.photoURL} className="post-author-avatar-img" />
+        ) : (
+          <div className="post-author-avatar">{post.author.charAt(0)}</div>
+        )}
         <div className="post-meta">
           <strong className="post-author">{post.author}</strong>
           <span className="post-time">{formatDate(post.timestamp)}</span>
