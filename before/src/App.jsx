@@ -4,7 +4,6 @@ import Timeline from "./components/Timeline";
 import PostForm from "./components/PostForm";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
   const [posts, setPosts] = useState([
     {
@@ -26,9 +25,8 @@ function App() {
    * ログインした時に実行される関数
    * @param {*} username
    */
-  const handleLogin = (username) => {
-    setCurrentUser(username);
-    setIsLoggedIn(true);
+  const handleLogin = () => {
+    setCurrentUser("gest");
   };
 
   /**
@@ -36,7 +34,6 @@ function App() {
    */
   const handleLogout = () => {
     setCurrentUser(null);
-    setIsLoggedIn(false);
   };
 
   /**
@@ -79,8 +76,8 @@ function App() {
     );
   };
 
-  if (!isLoggedIn) {
-    return <Login onLogin={handleLogin} />;
+  if (!currentUser) {
+    return <Login handleLogin={handleLogin} />;
   }
 
   return (
@@ -89,6 +86,7 @@ function App() {
         <h1>シンプルSNS</h1>
         <div className="user-info">
           <span>ようこそ、{currentUser}さん</span>
+          <img src={`url`} className="user-avatar" />
           <button onClick={handleLogout} className="logout-btn">
             ログアウト
           </button>
